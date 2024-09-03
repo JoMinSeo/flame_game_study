@@ -1,6 +1,6 @@
 import 'package:flame/game.dart';
-import 'package:flame_game_study/breakout/src/brick_breaker.dart';
-import 'package:flame_game_study/breakout/src/widgets/score_card.dart';
+import 'package:flame_game_study/breakout/brick_breaker.dart';
+import 'package:flame_game_study/breakout/widgets/score_card.dart';
 import 'package:flutter/material.dart';
 
 class BreakoutGamePage extends StatefulWidget {
@@ -22,46 +22,35 @@ class _BreakoutGamePageState extends State<BreakoutGamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xffa9d6e5), Color(0xfff2e8cf)],
-          ),
-        ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Stack(
-              children: [
-                GameWidget(
-                  game: game,
-                  overlayBuilderMap: {
-                    PlayState.welcome.name: (context, game) => Center(
-                          child: Text(
-                            'TAP TO PLAY',
-                            style: Theme.of(context).textTheme.headlineSmall,
-                          ),
-                        ),
-                    PlayState.gameOver.name: (context, game) => Center(
-                          child: Text(
-                            'G A M E O V E R',
-                            style: Theme.of(context).textTheme.headlineSmall,
-                          ),
-                        ),
-                    PlayState.won.name: (context, game) => Center(
-                          child: Text(
-                            'Y O U   W O N ! ! !',
-                            style: Theme.of(context).textTheme.headlineSmall,
-                          ),
-                        ),
-                  },
-                ),
-                ScoreCard(score: game.score),
-              ],
+      body: SafeArea(
+        bottom: false,
+        child: Stack(
+          children: [
+            GameWidget(
+              game: game,
+              overlayBuilderMap: {
+                PlayState.welcome.name: (context, game) => Center(
+                      child: Text(
+                        'TAP TO PLAY',
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ),
+                PlayState.gameOver.name: (context, game) => Center(
+                      child: Text(
+                        'G A M E O V E R',
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ),
+                PlayState.won.name: (context, game) => Center(
+                      child: Text(
+                        'Y O U   W O N ! ! !',
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ),
+              },
             ),
-          ),
+            ScoreCard(score: game.score),
+          ],
         ),
       ),
     );

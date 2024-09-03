@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame_game_study/breakout/src/brick_breaker.dart';
+import 'package:flame_game_study/breakout/brick_breaker.dart';
 import 'package:flutter/material.dart';
 
 class PlayArea extends RectangleComponent with HasGameReference<BrickBreaker> {

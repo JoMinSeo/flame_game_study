@@ -1,8 +1,8 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import 'package:flame_game_study/breakout/src/brick_breaker.dart';
-import 'package:flame_game_study/breakout/src/components/components.dart';
+import 'package:flame_game_study/breakout/brick_breaker.dart';
+import 'package:flame_game_study/breakout/components/components.dart';
 import 'package:flutter/material.dart';
 
 class Ball extends CircleComponent with CollisionCallbacks, HasGameReference<BrickBreaker> {

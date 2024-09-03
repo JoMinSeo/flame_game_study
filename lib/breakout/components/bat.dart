@@ -25,7 +25,10 @@ class Bat extends PositionComponent with DragCallbacks, HasGameReference<BrickBr
   @override
   void render(Canvas canvas) {
     super.render(canvas);
-    canvas.drawRRect(RRect.fromRectAndRadius(Offset.zero & size.toSize(), cornerRadius), _paint);
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(Offset.zero & size.toSize(), cornerRadius),
+      _paint,
+    );
   }
 
   @override
